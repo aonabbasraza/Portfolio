@@ -1,0 +1,59 @@
+AON ABBAS RAZA
+Full-Stack Developer & AI Engineer
+
+CONTACT INFORMATION
+Email: your.email@example.com
+LinkedIn: linkedin.com/in/aonabbasraza
+GitHub: github.com/aonabbasraza
+Location: Pakistan
+
+PROFESSIONAL SUMMARY
+Passionate computer science student with strong foundation in full-stack development and AI integration. 
+Specialized in building end-to-end applications using modern technologies like React, Flutter, FastAPI, and Gemini AI.
+
+CORE SKILLS
+Frontend: React 19, TypeScript, Tailwind CSS, Vite, Next.js, Flutter
+Backend: FastAPI, FastAPI, PostgreSQL, SQLite, Firebase
+AI/ML: Gemini AI, Google ADK, Agentic AI Systems, LLM Integration
+DevOps & Tools: Git, Docker, GitHub, Vercel, Firebase
+
+KEY PROJECTS
+
+AI Service Orchestrator
+- Built multi-agent AI system with 5 specialized agents
+- Technologies: Flutter, FastAPI, Google ADK, Gemini 2.0 Flash
+- Features: Intent understanding, provider discovery, real-time synchronization
+
+NeuralCanvas - AI Image Studio
+- Production-grade AI image generation platform
+- Technologies: React 19, FastAPI, Gemini AI, PostgreSQL, Cloudinary
+- Features: OAuth authentication, masonry gallery, usage analytics
+
+ConstructTrack
+- Advanced PostgreSQL system for construction resource allocation
+- Features: Stored procedures, triggers, materialized views
+- Optimized complex queries for performance
+
+MZE Solar Platform
+- Scalable service provider platform with role-based access
+- Technologies: Blazor, .NET C#, SQLite, Google Auth
+- Features: Custom chatbot, booking system, OAuth integration
+
+SlideForge - AI PowerPoint Generator
+- AI-powered presentation creation tool
+- Technologies: Next.js 14, NextAuth.js, Supabase, Groq API
+- Features: Multi-source image integration, real-time generation
+
+EDUCATION
+BS Computer Science (6th Semester)
+Specialization: Full-Stack Development & AI Integration
+
+LANGUAGES
+English, Urdu, Roman Urdu
+
+ADDITIONAL NOTES
+- Always learning and staying updated with emerging technologies
+- Focus on creating user-centric, maintainable solutions
+- Available for internship and freelance opportunities
+
+Note: Please replace this with your actual CV and update personal information accordingly.
