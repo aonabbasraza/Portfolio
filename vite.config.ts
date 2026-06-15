@@ -20,13 +20,19 @@ export default defineConfig({
     minify: "esbuild",
     cssMinify: true,
     sourcemap: false,
+    chunkSizeWarningLimit: 1000,
+    reportCompressedSize: false,
     rollupOptions: {
       output: {
-        manualChunks: {
+        manualChunks: (id) => {
           // Separate chunks for better caching
-          vendor: ["react", "react-dom"],
-          three: ["three", "@react-three/fiber", "@react-three/drei"],
-          ui: ["@radix-ui/react-dialog", "@radix-ui/react-popover"],
+          if (id.includes('node_modules')) {
+            if (id.includes('react')) return 'vendor-react';
+            if (id.includes('three')) return 'vendor-three';
+            if (id.includes('@radix-ui')) return 'vendor-ui';
+            if (id.includes('@emailjs')) return 'vendor-email';
+            return 'vendor';
+          }
         },
       },
     },
@@ -35,5 +41,9 @@ export default defineConfig({
     port: 3000,
     strictPort: false,
     host: true,
+  },
+  // Performance optimizations
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production'),
   },
 });

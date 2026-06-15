@@ -1,17 +1,21 @@
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Stars } from '@react-three/drei';
-import { Suspense } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Hero from '@/components/sections/Hero';
-import About from '@/components/sections/About';
-import Skills from '@/components/sections/Skills';
-import Projects from '@/components/sections/Projects';
-import Experience from '@/components/sections/Experience';
-import Education from '@/components/sections/Education';
-import Contact from '@/components/sections/Contact';
 import Navigation from '@/components/Navigation';
+
+// Lazy load sections for better initial load performance
+const About = lazy(() => import('@/components/sections/About'));
+const Skills = lazy(() => import('@/components/sections/Skills'));
+const Projects = lazy(() => import('@/components/sections/Projects'));
+const Experience = lazy(() => import('@/components/sections/Experience'));
+const Education = lazy(() => import('@/components/sections/Education'));
+const Contact = lazy(() => import('@/components/sections/Contact'));
+
+// Loading fallback component
+const SectionPlaceholder = () => <div className="section" />;
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -70,12 +74,24 @@ export default function Home() {
       {/* Content */}
       <main className="relative z-10">
         <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Education />
-        <Contact />
+        <Suspense fallback={<SectionPlaceholder />}>
+          <About />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <Skills />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <Projects />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <Experience />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <Education />
+        </Suspense>
+        <Suspense fallback={<SectionPlaceholder />}>
+          <Contact />
+        </Suspense>
       </main>
     </div>
   );

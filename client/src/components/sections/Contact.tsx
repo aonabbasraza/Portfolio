@@ -38,10 +38,43 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
+  // Email validation regex
+  const isValidEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
     setError('');
+
+    // Validation checks
+    if (!formData.name.trim()) {
+      setError('Name is required');
+      return;
+    }
+    if (!formData.email.trim()) {
+      setError('Email is required');
+      return;
+    }
+    if (!isValidEmail(formData.email)) {
+      setError('Please enter a valid email address');
+      return;
+    }
+    if (!formData.subject.trim()) {
+      setError('Subject is required');
+      return;
+    }
+    if (!formData.message.trim()) {
+      setError('Message is required');
+      return;
+    }
+    if (formData.message.trim().length < 10) {
+      setError('Message must be at least 10 characters');
+      return;
+    }
+
+    setLoading(true);
 
     try {
       await emailjs.send(
@@ -136,7 +169,7 @@ export default function Contact() {
                       <input
                         id="contact-name"
                         type="text"
-                        placeholder="John Doe"
+                        placeholder=" Your Name"
                         className="form-input"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -150,7 +183,7 @@ export default function Contact() {
                       <input
                         id="contact-email"
                         type="email"
-                        placeholder="john@example.com"
+                        placeholder="youremail@example.com"
                         className="form-input"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
